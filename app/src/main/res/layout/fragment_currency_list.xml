@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ksd.khincurrency.ui.screen.CurrencyListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/search_widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <android.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            android:focusable="false"
+            android:inputType="number"
+            android:focusableInTouchMode="false"
+            android:queryBackground="@android:color/transparent"
+            app:queryHint="@string/app_name"
+            app:setCharLimit="@{20}" />
+
+        <TextView
+            android:id="@+id/spinner_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/currency_select" />
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/currency_base"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/currency_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/search_widget" />
+    </LinearLayout>
+
+
+</layout>
