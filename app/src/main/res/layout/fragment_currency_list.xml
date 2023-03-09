@@ -18,15 +18,17 @@
 
 
         <android.widget.SearchView
+            android:id="@+id/search_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/teal_200"
+            android:background="@color/lime_50"
             android:focusable="false"
             android:inputType="number"
             android:focusableInTouchMode="false"
             android:queryBackground="@android:color/transparent"
-            app:queryHint="@string/app_name"
-            app:setCharLimit="@{20}" />
+            android:iconifiedByDefault="false"
+            app:setCharLimit="@{20}"
+            android:theme="@style/SearchViewStyle"/>
 
         <TextView
             android:id="@+id/spinner_lbl"

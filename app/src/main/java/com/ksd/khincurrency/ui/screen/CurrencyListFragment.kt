@@ -1,12 +1,12 @@
 package com.ksd.khincurrency.ui.screen
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import com.ksd.khincurrency.databinding.FragmentCurrencyListBinding
+import com.ksd.khincurrency.R
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -56,6 +57,30 @@ class CurrencyListFragment : Fragment() {
                     // viewModel.loadNextItemsIfNeeded(lastVisibleItem, currencyListAdapter.itemCount)
                 }
             })
+
+            searchView.queryHint = getString(R.string.currency_hint)
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    if (query.isNotEmpty()) {
+                        Toast.makeText(
+                            context,
+                            "onQueryTextSubmit "+  query, Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    return false
+                }
+
+                override fun onQueryTextChange(query: String): Boolean {
+                    if (query.isNotEmpty()) {
+                        // Other check process for query ?
+                        Toast.makeText(
+                            context,
+                            "onQueryTextChange  " + query, Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    return false
+                }
+            })
         }
 
         setUpBaseSpinner()
@@ -68,11 +93,11 @@ class CurrencyListFragment : Fragment() {
     }
 
     private fun setUpBaseSpinner() {
-        val languages = resources.getStringArray(com.ksd.khincurrency.R.array.currency_base)
+        val languages = resources.getStringArray(R.array.currency_base)
         val adapterBase = context?.let {
             ArrayAdapter(
                 it,
-                R.layout.simple_spinner_item, languages
+                android.R.layout.simple_spinner_item, languages
             )
         }
         binding.currencyBase.adapter = adapterBase
@@ -84,7 +109,7 @@ class CurrencyListFragment : Fragment() {
             ) {
                 Toast.makeText(
                     context,
-                    getString(com.ksd.khincurrency.R.string.app_name) + " " +
+                    getString(R.string.app_name) + " " +
                             "" + languages[position], Toast.LENGTH_SHORT
                 ).show()
             }

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">KhinCurrency</string>
     <string name="currency_select">Select Currency:</string>
+    <string name="currency_hint"># ## ##. ##</string>
     <string name="textview">TextView</string>
     <string-array name="currency_base">
         <item>AED</item>
