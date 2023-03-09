@@ -10,6 +10,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -36,12 +37,11 @@ class CurrencyListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.loadData()
 
         with(binding) {
             // Set up list of users
             currencyList.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                GridLayoutManager(requireContext(), 3)
             currencyList.adapter = currencyListAdapter.apply {
                 onCurrencyClickListener = { currency ->
                     // For more complex app, Jetpack navigation or a better navigation system that works across modules could be implemented
@@ -50,13 +50,6 @@ class CurrencyListFragment : Fragment() {
                     })*/
                 }
             }
-            currencyList.addOnScrollListener(object : OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    val lastVisibleItem =
-                        (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
-                    // viewModel.loadNextItemsIfNeeded(lastVisibleItem, currencyListAdapter.itemCount)
-                }
-            })
 
             searchView.queryHint = getString(R.string.currency_hint)
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -86,9 +79,9 @@ class CurrencyListFragment : Fragment() {
         setUpBaseSpinner()
 
         viewModel.currencyList.observe(viewLifecycleOwner) { currencyList ->
-            if (currencyList.isNotEmpty()) {
-                currencyListAdapter.insertToList(currencyList)
-            }
+            Timber.d("List ===0000==> ${currencyList.size}")
+            currencyListAdapter.submitList(currencyList)
+
         }
     }
 

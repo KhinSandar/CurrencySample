@@ -18,8 +18,8 @@ class Repository @Inject constructor(
     companion object {
         // The cache time for the data.
         // If cache time expires or not set we retrieve from network source, else retrieve from local source
-        val USER_LIST_TTL: Pair<String, Duration> = Pair("USER_LIST", 30.minutes)
-        val USER_INFO_TTL: Pair<String, Duration> = Pair("USER_INFO", 5.minutes)
+        val USER_LIST_TTL: Pair<String, Duration> = Pair("LIST", 30.minutes)
+        val USER_INFO_TTL: Pair<String, Duration> = Pair("INFO", 5.minutes)
     }
 
     suspend fun getCurrencyList(appId: String): Flow<CurrencyInfo> = flow {

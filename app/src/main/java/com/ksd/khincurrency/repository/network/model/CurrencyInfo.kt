@@ -1,5 +1,6 @@
 package com.ksd.khincurrency.repository.network.model
 
+import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
 data class CurrencyInfo(
@@ -12,5 +13,5 @@ data class CurrencyInfo(
     @SerializedName("base")
     val base: String,
     @SerializedName("rates")
-    val rates: CurrencyRate
+    val rates: JsonObject
 )

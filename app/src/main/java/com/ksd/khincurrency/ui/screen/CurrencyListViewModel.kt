@@ -21,10 +21,14 @@ class CurrencyListViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    private var _currencyList = MutableLiveData<List<String>>()
-    val currencyList: LiveData<List<String>> get() = _currencyList
+    private var _currencyList = MutableLiveData<List<CurrencyListItemUiState>>()
+    val currencyList: LiveData<List<CurrencyListItemUiState>> get() = _currencyList
 
     private var isLoadingData = false
+
+    init {
+        loadData()
+    }
 
     fun loadData() {
         if (isLoadingData) return
@@ -42,15 +46,18 @@ class CurrencyListViewModel @Inject constructor(
 
             currencyListDataFlow.collect { currencyInfo ->
 
-                // val stringJSON = Gson().toJson(currencyInfo.rates).toList()  // To JSON
-                // val objectList = gson.fromJson(json, Array<SomeObject>::class.java).asList()
-                val gson = Gson()
-                val jsonString = gson.toJson(currencyInfo.rates)
-                val listType = object : TypeToken<List<String>>() { }.type
-                val newList = gson.fromJson<List<String>>(jsonString, listType)
-                Timber.d("String ==> ${newList.size} $newList")
 
-                // _currencyList.value = newList
+                val gson = Gson()
+                val listType = object : TypeToken<Map<String,Double>>() { }.type
+
+                val newList = gson.fromJson<Map<String,Double>>(currencyInfo.rates, listType)
+                Timber.d("List ===111==> ${newList.size}")
+
+
+                val list = newList.map {
+                    CurrencyListItemUiState(baseName = it.key, rateValue = it.value)
+                }
+                 _currencyList.value = list
                 isLoadingData = false
             }
         }

@@ -4,341 +4,341 @@ import com.google.gson.annotations.SerializedName
 
 data class CurrencyRate(
     @SerializedName("AED")
-    val AED: Long,
+    val AED: Double? = null,
     @SerializedName("AFN")
-    val AFN: Long,
+    val AFN: Double? = null,
     @SerializedName("ALL")
-    val ALL: Long,
+    val ALL: Double? = null,
     @SerializedName("AMD")
-    val AMD: Long,
+    val AMD: Double? = null,
     @SerializedName("ANG")
-    val ANG: Long,
+    val ANG: Double? = null,
     @SerializedName("AOA")
-    val AOA: Long,
+    val AOA: Double? = null,
     @SerializedName("ARS")
-    val ARS: Long,
+    val ARS: Double? = null,
     @SerializedName("AUD")
-    val AUD: Long,
+    val AUD: Double? = null,
     @SerializedName("AWG")
-    val AWG: Long,
+    val AWG: Double? = null,
     @SerializedName("AZN")
-    val AZN: Long,
+    val AZN: Double? = null,
     @SerializedName("BAM")
-    val BAM: Long,
+    val BAM: Double? = null,
     @SerializedName("BBD")
-    val BBD: Long,
+    val BBD: Double? = null,
     @SerializedName("BDT")
-    val BDT: Long,
+    val BDT: Double? = null,
     @SerializedName("BGN")
-    val BGN: Long,
+    val BGN: Double? = null,
     @SerializedName("BHD")
-    val BHD: Long,
+    val BHD: Double? = null,
     @SerializedName("BIF")
-    val BIF: Long,
+    val BIF: Double? = null,
     @SerializedName("BMD")
-    val BMD: Long,
+    val BMD: Double? = null,
     @SerializedName("BND")
-    val BND: Long,
+    val BND: Double? = null,
     @SerializedName("BOB")
-    val BOB: Long,
+    val BOB: Double? = null,
     @SerializedName("BRL")
-    val BRL: Long,
+    val BRL: Double? = null,
     @SerializedName("BSD")
-    val BSD: Long,
+    val BSD: Double? = null,
     @SerializedName("BTC")
-    val BTC: Long,
+    val BTC: Double? = null,
     @SerializedName("BTN")
-    val BTN: Long,
+    val BTN: Double? = null,
     @SerializedName("BWP")
-    val BWP: Long,
+    val BWP: Double? = null,
     @SerializedName("BYN")
-    val BYN: Long,
+    val BYN: Double? = null,
     @SerializedName("BZD")
-    val BZD: Long,
+    val BZD: Double? = null,
     @SerializedName("CAD")
-    val CAD: Long,
+    val CAD: Double? = null,
     @SerializedName("CDF")
-    val CDF: Long,
+    val CDF: Double? = null,
     @SerializedName("CHF")
-    val CHF: Long,
+    val CHF: Double? = null,
     @SerializedName("CLF")
-    val CLF: Long,
+    val CLF: Double? = null,
     @SerializedName("CLP")
-    val CLP: Long,
+    val CLP: Double? = null,
     @SerializedName("CNH")
-    val CNH: Long,
+    val CNH: Double? = null,
     @SerializedName("CNY")
-    val CNY: Long,
+    val CNY: Double? = null,
     @SerializedName("COP")
-    val COP: Long,
+    val COP: Double? = null,
     @SerializedName("CRC")
-    val CRC: Long,
+    val CRC: Double? = null,
     @SerializedName("CUC")
-    val CUC: Long,
+    val CUC: Double? = null,
     @SerializedName("CUP")
-    val CUP: Long,
+    val CUP: Double? = null,
     @SerializedName("CVE")
-    val CVE: Long,
+    val CVE: Double? = null,
     @SerializedName("CZK")
-    val CZK: Long,
+    val CZK: Double? = null,
     @SerializedName("DJF")
-    val DJF: Long,
+    val DJF: Double? = null,
     @SerializedName("DKK")
-    val DKK: Long,
+    val DKK: Double? = null,
     @SerializedName("DOP")
-    val DOP: Long,
+    val DOP: Double? = null,
     @SerializedName("DZD")
-    val DZD: Long,
+    val DZD: Double? = null,
     @SerializedName("EGP")
-    val EGP: Long,
+    val EGP: Double? = null,
     @SerializedName("ERN")
-    val ERN: Long,
+    val ERN: Double? = null,
     @SerializedName("ETB")
-    val ETB: Long,
+    val ETB: Double? = null,
     @SerializedName("EUR")
-    val EUR: Long,
+    val EUR: Double? = null,
     @SerializedName("FJD")
-    val FJD: Long,
+    val FJD: Double? = null,
     @SerializedName("FKP")
-    val FKP: Long,
+    val FKP: Double? = null,
     @SerializedName("GBP")
-    val GBP: Long,
+    val GBP: Double? = null,
     @SerializedName("GEL")
-    val GEL: Long,
+    val GEL: Double? = null,
     @SerializedName("GGP")
-    val GGP: Long,
+    val GGP: Double? = null,
     @SerializedName("GHS")
-    val GHS: Long,
+    val GHS: Double? = null,
     @SerializedName("GIP")
-    val GIP: Long,
+    val GIP: Double? = null,
     @SerializedName("GMD")
-    val GMD: Long,
+    val GMD: Double? = null,
     @SerializedName("GNF")
-    val GNF: Long,
+    val GNF: Double? = null,
     @SerializedName("GTQ")
-    val GTQ: Long,
+    val GTQ: Double? = null,
     @SerializedName("GYD")
-    val GYD: Long,
+    val GYD: Double? = null,
     @SerializedName("HKD")
-    val HKD: Long,
+    val HKD: Double? = null,
     @SerializedName("HNL")
-    val HNL: Long,
+    val HNL: Double? = null,
     @SerializedName("HRK")
-    val HRK: Long,
+    val HRK: Double? = null,
     @SerializedName("HTG")
-    val HTG: Long,
+    val HTG: Double? = null,
     @SerializedName("HUF")
-    val HUF: Long,
+    val HUF: Double? = null,
     @SerializedName("IDR")
-    val IDR: Long,
+    val IDR: Double? = null,
     @SerializedName("ILS")
-    val ILS: Long,
+    val ILS: Double? = null,
     @SerializedName("IMP")
-    val IMP: Long,
+    val IMP: Double? = null,
     @SerializedName("INR")
-    val INR: Long,
+    val INR: Double? = null,
     @SerializedName("IQD")
-    val IQD: Long,
+    val IQD: Double? = null,
     @SerializedName("IRR")
-    val IRR: Long,
+    val IRR: Double? = null,
     @SerializedName("ISK")
-    val ISK: Long,
+    val ISK: Double? = null,
     @SerializedName("JEP")
-    val JEP: Long,
+    val JEP: Double? = null,
     @SerializedName("JMD")
-    val JMD: Long,
+    val JMD: Double? = null,
     @SerializedName("JOD")
-    val JOD: Long,
+    val JOD: Double? = null,
     @SerializedName("JPY")
-    val JPY: Long,
+    val JPY: Double? = null,
     @SerializedName("KES")
-    val KES: Long,
+    val KES: Double? = null,
     @SerializedName("KGS")
-    val KGS: Long,
+    val KGS: Double? = null,
     @SerializedName("KHR")
-    val KHR: Long,
+    val KHR: Double? = null,
     @SerializedName("KMF")
-    val KMF: Long,
+    val KMF: Double? = null,
     @SerializedName("KPW")
-    val KPW: Long,
+    val KPW: Double? = null,
     @SerializedName("KRW")
-    val KRW: Long,
+    val KRW: Double? = null,
     @SerializedName("KWD")
-    val KWD: Long,
+    val KWD: Double? = null,
     @SerializedName("KYD")
-    val KYD: Long,
+    val KYD: Double? = null,
     @SerializedName("KZT")
-    val KZT: Long,
+    val KZT: Double? = null,
     @SerializedName("LAK")
-    val LAK: Long,
+    val LAK: Double? = null,
     @SerializedName("LBP")
-    val LBP: Long,
+    val LBP: Double? = null,
     @SerializedName("LKR")
-    val LKR: Long,
+    val LKR: Double? = null,
     @SerializedName("LRD")
-    val LRD: Long,
+    val LRD: Double? = null,
     @SerializedName("LSL")
-    val LSL: Long,
+    val LSL: Double? = null,
     @SerializedName("LYD")
-    val LYD: Long,
+    val LYD: Double? = null,
     @SerializedName("MAD")
-    val MAD: Long,
+    val MAD: Double? = null,
     @SerializedName("MDL")
-    val MDL: Long,
+    val MDL: Double? = null,
     @SerializedName("MGA")
-    val MGA: Long,
+    val MGA: Double? = null,
     @SerializedName("MKD")
-    val MKD: Long,
+    val MKD: Double? = null,
     @SerializedName("MMK")
-    val MMK: Long,
+    val MMK: Double? = null,
     @SerializedName("MNT")
-    val MNT: Long,
+    val MNT: Double? = null,
     @SerializedName("MOP")
-    val MOP: Long,
+    val MOP: Double? = null,
     @SerializedName("MRU")
-    val MRU: Long,
+    val MRU: Double? = null,
     @SerializedName("MUR")
-    val MUR: Long,
+    val MUR: Double? = null,
     @SerializedName("MVR")
-    val MVR: Long,
+    val MVR: Double? = null,
     @SerializedName("MWK")
-    val MWK: Long,
+    val MWK: Double? = null,
     @SerializedName("MXN")
-    val MXN: Long,
+    val MXN: Double? = null,
     @SerializedName("MYR")
-    val MYR: Long,
+    val MYR: Double? = null,
     @SerializedName("MZN")
-    val MZN: Long,
+    val MZN: Double? = null,
     @SerializedName("NAD")
-    val NAD: Long,
+    val NAD: Double? = null,
     @SerializedName("NGN")
-    val NGN: Long,
+    val NGN: Double? = null,
     @SerializedName("NIO")
-    val NIO: Long,
+    val NIO: Double? = null,
     @SerializedName("NOK")
-    val NOK: Long,
+    val NOK: Double? = null,
     @SerializedName("NPR")
-    val NPR: Long,
+    val NPR: Double? = null,
     @SerializedName("NZD")
-    val NZD: Long,
+    val NZD: Double? = null,
     @SerializedName("OMR")
-    val OMR: Long,
+    val OMR: Double? = null,
     @SerializedName("PAB")
-    val PAB: Long,
+    val PAB: Double? = null,
     @SerializedName("PEN")
-    val PEN: Long,
+    val PEN: Double? = null,
     @SerializedName("PGK")
-    val PGK: Long,
+    val PGK: Double? = null,
     @SerializedName("PHP")
-    val PHP: Long,
+    val PHP: Double? = null,
     @SerializedName("PKR")
-    val PKR: Long,
+    val PKR: Double? = null,
     @SerializedName("PLN")
-    val PLN: Long,
+    val PLN: Double? = null,
     @SerializedName("PYG")
-    val PYG: Long,
+    val PYG: Double? = null,
     @SerializedName("QAR")
-    val QAR: Long,
+    val QAR: Double? = null,
     @SerializedName("RON")
-    val RON: Long,
+    val RON: Double? = null,
     @SerializedName("RSD")
-    val RSD: Long,
+    val RSD: Double? = null,
     @SerializedName("RUB")
-    val RUB: Long,
+    val RUB: Double? = null,
     @SerializedName("RWF")
-    val RWF: Long,
+    val RWF: Double? = null,
     @SerializedName("SAR")
-    val SAR: Long,
+    val SAR: Double? = null,
     @SerializedName("SBD")
-    val SBD: Long,
+    val SBD: Double? = null,
     @SerializedName("SCR")
-    val SCR: Long,
+    val SCR: Double? = null,
     @SerializedName("SDG")
-    val SDG: Long,
+    val SDG: Double? = null,
     @SerializedName("SEK")
-    val SEK: Long,
+    val SEK: Double? = null,
     @SerializedName("SGD")
-    val SGD: Long,
+    val SGD: Double? = null,
     @SerializedName("SHP")
-    val SHP: Long,
+    val SHP: Double? = null,
     @SerializedName("SLL")
-    val SLL: Long,
+    val SLL: Double? = null,
     @SerializedName("SOS")
-    val SOS: Long,
+    val SOS: Double? = null,
     @SerializedName("SRD")
-    val SRD: Long,
+    val SRD: Double? = null,
     @SerializedName("SSP")
-    val SSP: Long,
+    val SSP: Double? = null,
     @SerializedName("STD")
-    val STD: Long,
+    val STD: Double? = null,
     @SerializedName("STN")
-    val STN: Long,
+    val STN: Double? = null,
     @SerializedName("SVC")
-    val SVC: Long,
+    val SVC: Double? = null,
     @SerializedName("SYP")
-    val SYP: Long,
+    val SYP: Double? = null,
     @SerializedName("SZL")
-    val SZL: Long,
+    val SZL: Double? = null,
     @SerializedName("THB")
-    val THB: Long,
+    val THB: Double? = null,
     @SerializedName("TJS")
-    val TJS: Long,
+    val TJS: Double? = null,
     @SerializedName("TMT")
-    val TMT: Long,
+    val TMT: Double? = null,
     @SerializedName("TND")
-    val TND: Long,
+    val TND: Double? = null,
     @SerializedName("TOP")
-    val TOP: Long,
+    val TOP: Double? = null,
     @SerializedName("TRY")
-    val TRY: Long,
+    val TRY: Double? = null,
     @SerializedName("TTD")
-    val TTD: Long,
+    val TTD: Double? = null,
     @SerializedName("TWD")
-    val TWD: Long,
+    val TWD: Double? = null,
     @SerializedName("TZS")
-    val TZS: Long,
+    val TZS: Double? = null,
     @SerializedName("UAH")
-    val UAH: Long,
+    val UAH: Double? = null,
     @SerializedName("UGX")
-    val UGX: Long,
+    val UGX: Double? = null,
     @SerializedName("USD")
-    val USD: Long,
+    val USD: Double? = null,
     @SerializedName("UYU")
-    val UYU: Long,
+    val UYU: Double? = null,
     @SerializedName("UZS")
-    val UZS: Long,
+    val UZS: Double? = null,
     @SerializedName("VES")
-    val VES: Long,
+    val VES: Double? = null,
     @SerializedName("VND")
-    val VND: Long,
+    val VND: Double? = null,
     @SerializedName("VUV")
-    val VUV: Long,
+    val VUV: Double? = null,
     @SerializedName("WST")
-    val WST: Long,
+    val WST: Double? = null,
     @SerializedName("XAF")
-    val XAF: Long,
+    val XAF: Double? = null,
     @SerializedName("XAG")
-    val XAG: Long,
+    val XAG: Double? = null,
     @SerializedName("XAU")
-    val XAU: Long,
+    val XAU: Double? = null,
     @SerializedName("XCD")
-    val XCD: Long,
+    val XCD: Double? = null,
     @SerializedName("XDR")
-    val XDR: Long,
+    val XDR: Double? = null,
     @SerializedName("XOF")
-    val XOF: Long,
+    val XOF: Double? = null,
     @SerializedName("XPD")
-    val XPD: Long,
+    val XPD: Double? = null,
     @SerializedName("XPF")
-    val XPF: Long,
+    val XPF: Double? = null,
     @SerializedName("XPT")
-    val XPT: Long,
+    val XPT: Double? = null,
     @SerializedName("YER")
-    val YER: Long,
+    val YER: Double? = null,
     @SerializedName("ZAR")
-    val ZAR: Long,
+    val ZAR: Double? = null,
     @SerializedName("ZMW")
-    val ZMW: Long,
+    val ZMW: Double? = null,
     @SerializedName("ZWL")
-    val ZWL: Long
+    val ZWL: Double? = null
 )

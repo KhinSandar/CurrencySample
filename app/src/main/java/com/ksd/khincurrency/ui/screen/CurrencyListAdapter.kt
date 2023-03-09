@@ -2,21 +2,15 @@ package com.ksd.khincurrency.ui.screen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.khinsampleapp.common.textOrGone
 import com.ksd.khincurrency.databinding.ViewCurrencyListEntryBinding
 
-class CurrencyListAdapter : RecyclerView.Adapter<CurrencyListAdapter.UserListViewHolder>() {
+class CurrencyListAdapter : ListAdapter<CurrencyListItemUiState, CurrencyListAdapter.UserListViewHolder>(DiffItemCallBack) {
 
-    private val currencyList: MutableList<String> = mutableListOf()
-
-    var onCurrencyClickListener: ((String) -> Unit)? = null
-
-    fun insertToList(currency: List<String>) {
-        val currentUserCount = currencyList.size
-        currencyList.addAll(currency)
-        notifyItemRangeInserted(currentUserCount, currencyList.size)
-    }
+    var onCurrencyClickListener: ((CurrencyListItemUiState) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UserListViewHolder(
@@ -30,28 +24,38 @@ class CurrencyListAdapter : RecyclerView.Adapter<CurrencyListAdapter.UserListVie
             onCurrencyClickListener
         )
 
-    override fun onBindViewHolder(holder: UserListViewHolder, position: Int) {
-        holder.update(currencyList[position])
+    object DiffItemCallBack: DiffUtil.ItemCallback<CurrencyListItemUiState>() {
+        override fun areItemsTheSame(
+            oldItem: CurrencyListItemUiState,
+            newItem: CurrencyListItemUiState
+        ): Boolean {
+            return oldItem.baseName == newItem.baseName
+        }
+
+        override fun areContentsTheSame(
+            oldItem: CurrencyListItemUiState,
+            newItem: CurrencyListItemUiState
+        ): Boolean {
+            return oldItem == newItem
+        }
+
     }
 
-    override fun getItemCount() = currencyList.size
+    override fun onBindViewHolder(holder: UserListViewHolder, position: Int) {
+        holder.update(getItem(position))
+    }
+
 
     class UserListViewHolder(
         private val binding: ViewCurrencyListEntryBinding,
-        private val onUserClickListener: ((String) -> Unit)?
+        private val onUserClickListener: ((CurrencyListItemUiState) -> Unit)?
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun update(currency: String) {
+        fun update(currency: CurrencyListItemUiState) {
             with(binding) {
-                // userListEntryId.text = "UserID-${currency.id.toString()}"
-                userListEntryLogin.textOrGone(currency)
-                // userListEntryUrl.text = user.htmlUrl
-                /*Glide.with(root.context)
-                    .load(Uri.parse(user.avatarUrl))
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .circleCrop()
-                    .into(userListEntryAvatar)*/
+                base.textOrGone(currency.baseName)
+                rateValue.textOrGone(currency.rateValue.toString())
 
                 root.setOnClickListener {
                     onUserClickListener?.invoke(currency)
