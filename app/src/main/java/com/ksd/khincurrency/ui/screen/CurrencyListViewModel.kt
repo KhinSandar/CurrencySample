@@ -22,7 +22,7 @@ class CurrencyListViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var _currencyList = MutableLiveData<List<CurrencyListItemUiState>>()
-    val currencyList: LiveData<List<CurrencyListItemUiState>> get() = _currencyList
+    var currencyList: MutableLiveData<List<CurrencyListItemUiState>> = _currencyList
 
     private var isLoadingData = false
 
@@ -30,11 +30,11 @@ class CurrencyListViewModel @Inject constructor(
         loadData()
     }
 
-    fun loadData() {
+    private fun loadData() {
         if (isLoadingData) return
         isLoadingData = true
         viewModelScope.launch {
-            // Load user list from data source flow. For pagination, provide the ID of the last user loaded
+            // Load currency list from data source flow. For pagination, provide the ID of the last user loaded
             val currencyListDataFlow = repository.getCurrencyList(API_APP_ID)
                 .flowOn(Dispatchers.IO)
                 .catch { error ->
@@ -46,27 +46,18 @@ class CurrencyListViewModel @Inject constructor(
 
             currencyListDataFlow.collect { currencyInfo ->
 
-
                 val gson = Gson()
                 val listType = object : TypeToken<Map<String,Double>>() { }.type
-
                 val newList = gson.fromJson<Map<String,Double>>(currencyInfo.rates, listType)
-                Timber.d("List ===111==> ${newList.size}")
 
 
                 val list = newList.map {
                     CurrencyListItemUiState(baseName = it.key, rateValue = it.value)
                 }
                  _currencyList.value = list
+                Timber.d("New List ==========>ViewModel ${list?.size} ${list?.get(0)?.rateValue} ${list?.get(0)?.calculateAmount}")
                 isLoadingData = false
             }
-        }
-    }
-
-    fun loadNextItemsIfNeeded(lastVisibleItem: Int, totalItemsInList: Int) {
-        // Pagination: Start loading the next items onto the list when we are about to reach the end
-        if (lastVisibleItem + 3 > totalItemsInList) {
-            loadData()
         }
     }
 

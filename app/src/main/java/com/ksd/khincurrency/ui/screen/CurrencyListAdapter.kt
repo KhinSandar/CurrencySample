@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.khinsampleapp.common.textOrGone
 import com.ksd.khincurrency.databinding.ViewCurrencyListEntryBinding
+import timber.log.Timber
 
 class CurrencyListAdapter : ListAdapter<CurrencyListItemUiState, CurrencyListAdapter.UserListViewHolder>(DiffItemCallBack) {
 
@@ -55,6 +56,7 @@ class CurrencyListAdapter : ListAdapter<CurrencyListItemUiState, CurrencyListAda
         fun update(currency: CurrencyListItemUiState) {
             with(binding) {
                 base.textOrGone(currency.baseName)
+                Timber.d("Value ===> ${currency.calculateAmount} <<<>>>>> ${currency.rateValue}")
                 rateValue.textOrGone(currency.rateValue.toString())
 
                 root.setOnClickListener {

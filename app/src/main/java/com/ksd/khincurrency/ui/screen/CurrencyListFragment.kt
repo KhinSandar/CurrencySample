@@ -11,9 +11,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import com.ksd.khincurrency.databinding.FragmentCurrencyListBinding
 import com.ksd.khincurrency.R
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,8 +54,20 @@ class CurrencyListFragment : Fragment() {
                     if (query.isNotEmpty()) {
                         Toast.makeText(
                             context,
-                            "onQueryTextSubmit "+  query, Toast.LENGTH_SHORT
+                            "User Update Value ==> " + query, Toast.LENGTH_SHORT
                         ).show()
+
+                        val newList = viewModel.currencyList.value
+                        newList?.map {
+                            it.copy(
+                                baseName = it.baseName,
+                                rateValue = it.rateValue * 2 ,
+                                calculateAmount = 0.1222
+                            )
+                        }
+
+                        Timber.d("New List ==========> ${newList?.size} ${newList?.get(0)?.rateValue} ${newList?.get(0)?.calculateAmount}")
+                        viewModel.currencyList.value = newList?.toMutableList()
                     }
                     return false
                 }
@@ -79,7 +88,8 @@ class CurrencyListFragment : Fragment() {
         setUpBaseSpinner()
 
         viewModel.currencyList.observe(viewLifecycleOwner) { currencyList ->
-            Timber.d("List ===0000==> ${currencyList.size}")
+            Timber.d("New List ==========>Observe ${currencyList?.size} ${currencyList?.get(0)?.rateValue} ${currencyList?.get(0)?.calculateAmount}")
+
             currencyListAdapter.submitList(currencyList)
 
         }

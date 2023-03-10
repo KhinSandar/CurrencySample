@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-            name="viewModel"
+            name="model"
             type="com.ksd.khincurrency.ui.screen.CurrencyListViewModel" />
     </data>
 
@@ -23,12 +22,12 @@
             android:layout_height="wrap_content"
             android:background="@color/lime_50"
             android:focusable="false"
-            android:inputType="number"
             android:focusableInTouchMode="false"
-            android:queryBackground="@android:color/transparent"
             android:iconifiedByDefault="false"
-            app:setCharLimit="@{20}"
-            android:theme="@style/SearchViewStyle"/>
+            android:inputType="number"
+            android:queryBackground="@android:color/transparent"
+            android:theme="@style/SearchViewStyle"
+            app:setCharLimit="@{20}" />
 
         <TextView
             android:id="@+id/spinner_lbl"
@@ -36,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginStart="10dp"
+            android:text="@string/currency_select"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="@string/currency_select" />
+            android:textStyle="bold" />
 
 
         <androidx.appcompat.widget.AppCompatSpinner
@@ -54,6 +53,5 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/search_widget" />
     </LinearLayout>
-
 
 </layout>

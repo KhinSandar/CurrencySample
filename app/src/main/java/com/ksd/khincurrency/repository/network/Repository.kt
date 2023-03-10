@@ -18,17 +18,16 @@ class Repository @Inject constructor(
     companion object {
         // The cache time for the data.
         // If cache time expires or not set we retrieve from network source, else retrieve from local source
-        val USER_LIST_TTL: Pair<String, Duration> = Pair("LIST", 30.minutes)
-        val USER_INFO_TTL: Pair<String, Duration> = Pair("INFO", 5.minutes)
+        val CURRENCY_LIST_TTL: Pair<String, Duration> = Pair("LIST", 30.minutes)
     }
 
     suspend fun getCurrencyList(appId: String): Flow<CurrencyInfo> = flow {
         runCatching {
             // We could expand this to cache the response based on some specific TTL for the data like this
             /*if (isCacheExpired(USER_LIST_TTL)) {
-                getUserListFromNetwork(since)
+                getCurrencyListFromNetwork(since)
             } else {
-                getUserListFromDatabase(since)
+                getCurrencyListFromDatabase(since)
             }*/
             // On this case for simplicity reasons we will obtain it only from network
             getCurrencyListFromNetwork(appId)
@@ -40,7 +39,7 @@ class Repository @Inject constructor(
                         //getUserListFromDatabase()
                     }.onFailure {
                         throw it
-                    }.onSuccess { currencyList ->
+                    }.onSuccess { _ ->
                         //emit(userList)
                     }
                 }
